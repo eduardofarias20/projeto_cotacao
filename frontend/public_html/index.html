@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="produtosApp">
+    <head>
+        <title>Cotações de Preços On-Line</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body ng-controller="ProdutosController">
+        <form>
+            <h1>Cadastro</h1>
+            <label for="id">Código: </label>
+            <input id="id" name="id" type="text" ng-model="produto.id">
+            <br><br>
+            <label for="nome_produto">Produto: </label>
+            <input id="nome_produto" name="nome_produto" type="text" ng-model="produto.nome_produto">
+            <br><br>
+            <button ng-click="cancelar()"> Cancelar </button>
+            <button ng-click="salvar(produto)"> Salvar </button>
+        </form>
+        <h1>Tabela de Produtos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Produto</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="produto in produtos track by $index">
+                    <td ng-dblclick="editar(produto)">{{produto.id}}</td>
+                    <td ng-dblclick="editar(produto)">{{produto.nome_produto}}</td>
+                    <td><a href="" ng-click="editar(produto)">[Editar]</a></td>
+                    <td><a href="" ng-click="excluir(produto)">[Excluir]</a></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <script src="js/angular.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
